@@ -6,13 +6,17 @@ public class animation : MonoBehaviour {
 	private RaycastHit hit;
 	private GameObject oldWoman;
 	private GameObject pot;
+	private Camera camera;
 
 	private bool stoppedInFrontOfWoman;
 	private bool sawPot;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start () {
 		oldWoman = GameObject.Find ("Old_Ass_Woman");
+		camera = GameObject.Find ("MainCamera").camera;
 		pot = GameObject.Find ("Pot");
 		stoppedInFrontOfWoman = false;
 		sawPot = false;
@@ -41,13 +45,14 @@ public class animation : MonoBehaviour {
 		} else {
 			targetRotation = Quaternion.LookRotation (oldWoman.transform.position - transform.position);
 		}
-//		targetRotation = Quaternion.LookRotation (oldWoman.transform.position - transform.position);
 		var str = Mathf.Min (1 * Time.deltaTime, 1);
 		transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
 
 		// move until close to old woman
 		if (dist > 5) {
 			transform.Translate(transform.forward * -3 * Time.deltaTime);
+			camera.transform.Translate(transform.forward * -3 * Time.deltaTime);
+			camera.transform.LookAt(this.transform.position);
 		} else {
 			if (!stoppedInFrontOfWoman) {
 				print ("Stopped in front of old woman!");
