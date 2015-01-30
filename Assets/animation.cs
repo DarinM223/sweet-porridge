@@ -18,6 +18,7 @@ public class animation : MonoBehaviour {
 		oldWoman = GameObject.Find ("Old_Ass_Woman");
 		camera = GameObject.Find ("MainCamera").camera;
 		pot = GameObject.Find ("Pot");
+		animator = this.GetComponent<Animator> ();
 		stoppedInFrontOfWoman = false;
 		sawPot = false;
 	}
@@ -49,12 +50,13 @@ public class animation : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
 
 		// move until close to old woman
-		if (dist > 5) {
-			transform.Translate(transform.forward * -3 * Time.deltaTime);
-			camera.transform.Translate(transform.forward * -3 * Time.deltaTime);
+		if (dist > 5 && !stoppedInFrontOfWoman) {
+			animator.SetInteger("Walking", 1);
+			camera.transform.Translate(transform.forward * -1 * Time.deltaTime);
 			camera.transform.LookAt(this.transform.position);
 		} else {
 			if (!stoppedInFrontOfWoman) {
+				animator.SetInteger("Walking", 0);
 				print ("Stopped in front of old woman!");
 				stoppedInFrontOfWoman = true;
 			}
