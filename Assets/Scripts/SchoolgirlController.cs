@@ -71,7 +71,7 @@ public class SchoolgirlController : MonoBehaviour {
 	void Update () {
 		var dist = Vector3.Distance(oldWoman.transform.position, transform.position);
 
-		raycast ();
+		// raycast ();
 
 		float walkingSpeed = Input.GetAxis("Vertical");
 

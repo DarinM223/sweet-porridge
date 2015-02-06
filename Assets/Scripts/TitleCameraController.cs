@@ -3,16 +3,23 @@ using System.Collections;
 
 public class TitleCameraController : MonoBehaviour {
 
-	private GameObject trailerHouse; // the house where the girl lives
+	private GameObject girl; // the protagonist of the story
 	private GameObject title; // game title shown in the sky at the beginning of the scene
+	private Camera mainCamera;
 	private Time startTime;
 	private bool started;
+	private bool rotating;
+	private bool zooming;
 
 	// Use this for initialization
 	void Start () {
-		trailerHouse = GameObject.Find("TrailerHouse");
+		girl = GameObject.Find("Schoolgirl");
 		title = GameObject.Find("Title");
+		mainCamera = GameObject.Find("MainCamera").camera;
+		mainCamera.enabled = false;
 		started = true;
+		rotating = false;
+		zooming = false;
 	}
 
 	private IEnumerator waitForSpecifiedTime() {
@@ -20,14 +27,42 @@ public class TitleCameraController : MonoBehaviour {
 		MoveScripts.HideObject(title, true);
 		yield return new WaitForSeconds(2);
 		started = false;
+		rotating = true;
+	}
+
+	private IEnumerator rotateToGirl() {
+		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, girl.transform);
+		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
+			yield return new WaitForSeconds(1);
+			rotating = false;
+			zooming = true;
+		} else if (rotating) {
+			this.transform.rotation = rotTrans;
+		}
+	}
+
+	private IEnumerator zoomToGirl() {
+		float distance = Vector3.Distance(this.transform.position, girl.transform.position);
+		if (distance > 10.0) {
+			transform.position += transform.forward * Time.deltaTime * 20;
+		} else {
+			yield return new WaitForSeconds(2);
+			zooming = false;
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (started) {
 			StartCoroutine(waitForSpecifiedTime());
+		} else if (rotating) {
+			// rotateToGirl();
+			StartCoroutine(rotateToGirl());
+		} else if (zooming) {
+			StartCoroutine(zoomToGirl());
 		} else {
-			MoveScripts.RotateToFace(this.transform, trailerHouse.transform);
+			this.enabled = false;
+			// mainCamera.enabled = true;
 		}
 	}
 }

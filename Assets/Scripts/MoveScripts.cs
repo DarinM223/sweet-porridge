@@ -7,10 +7,10 @@ public static class MoveScripts {
 	 * @param {GameObject} object1 the object that rotates
 	 * @param {GameObject} object2 the object to rotate to
 	 */
-	public static void RotateToFace(Transform object1, Transform object2) {
+	public static Quaternion RotateToFace(Transform object1, Transform object2) {
 		Quaternion targetRotation = Quaternion.LookRotation (object2.position - object1.position);
 		var str = Mathf.Min (1 * Time.deltaTime, 1);
-		object1.rotation = Quaternion.Lerp (object1.rotation, targetRotation, str);
+		return Quaternion.Lerp (object1.rotation, targetRotation, str);
 	}
 
 	public static void HideObject(GameObject obj, bool isHidden) {
