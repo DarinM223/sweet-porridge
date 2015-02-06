@@ -3,30 +3,42 @@ using System.Collections;
 
 public class SchoolgirlController : MonoBehaviour {
 
+	public delegate void SchoolgirlAction();
+	public static event SchoolgirlAction OnFinishedRotating;
+
 	private RaycastHit hit;
 	private GameObject oldWoman;
+	private GameObject mom;
 	private GameObject pot;
 	private Camera camera;
-
-	private bool stoppedInFrontOfWoman;
-	private bool sawPot;
 
 	private Animator animator;
 	private int walkingState;
 	private int strafeState;
-
 	private int rotateState;
 
 	private bool facingForward = true;
+	private bool finishedZooming = false;
+
+	private void afterTitleCameraFinished() {
+		this.finishedZooming = true;
+	}
+
+	void OnEnable() {
+		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
+	}
+
+	void OnDisable() {
+		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
+	}
 
 	// Use this for initialization
 	void Start () {
 		oldWoman = GameObject.Find ("Old_Ass_Woman");
+		mom = GameObject.Find("Mom");
 		camera = GameObject.Find ("MainCamera").camera;
 		pot = GameObject.Find ("Pot");
 		animator = GetComponent<Animator> ();
-		stoppedInFrontOfWoman = false;
-		sawPot = false;
 	}
 
 	private void raycast() {
@@ -66,48 +78,63 @@ public class SchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Strafing", 0);
 	}
 
+	private IEnumerator rotateToFaceMom() {
+		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, mom.transform);
+		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
+			yield return new WaitForSeconds(2);
+
+			if (OnFinishedRotating != null) {
+				OnFinishedRotating(); // call event after finishing
+			}
+		} else {
+			this.transform.rotation = rotTrans;
+		}
+	}
+
 
 	// Update is called once per frame
 	void Update () {
-		var dist = Vector3.Distance(oldWoman.transform.position, transform.position);
-
-		// raycast ();
-
-		float walkingSpeed = Input.GetAxis("Vertical");
-
-		if (walkingSpeed > 0) {
-			walkingState = (int)walkingSpeed+1;
-		} else if (walkingSpeed < 0) {
-			walkingState = (int)walkingSpeed-1;
-		} else {
-			walkingState = 0;
+		if (this.finishedZooming) {
+			StartCoroutine(rotateToFaceMom());
 		}
 
-		if (walkingState != 0) {
-			processWalk();
-		} else {
-			clearWalk();
-		}
+		//var dist = Vector3.Distance(oldWoman.transform.position, transform.position);
 
-		float rotateSpeed = Input.GetAxis("Horizontal");
+		//float walkingSpeed = Input.GetAxis("Vertical");
 
-		if (rotateSpeed > 0) {
-			strafeState = (int)rotateSpeed+1;
-		} else if (rotateSpeed < 0) {
-			strafeState = (int)rotateSpeed-1;
-		} else {
-			strafeState = 0;
-		}
+		//if (walkingSpeed > 0) {
+		//  walkingState = (int)walkingSpeed+1;
+		//} else if (walkingSpeed < 0) {
+		//  walkingState = (int)walkingSpeed-1;
+		//} else {
+		//  walkingState = 0;
+		//}
 
-		if (strafeState != 0) {
-			processStrafe();
-		} else {
-			clearStrafe();
-		}
+		//if (walkingState != 0) {
+		//  processWalk();
+		//} else {
+		//  clearWalk();
+		//}
 
-		if (!Input.anyKey) {
-			clearWalk();
-			clearStrafe();
-		}
+		//float rotateSpeed = Input.GetAxis("Horizontal");
+
+		//if (rotateSpeed > 0) {
+		//  strafeState = (int)rotateSpeed+1;
+		//} else if (rotateSpeed < 0) {
+		//  strafeState = (int)rotateSpeed-1;
+		//} else {
+		//  strafeState = 0;
+		//}
+
+		//if (strafeState != 0) {
+		//  processStrafe();
+		//} else {
+		//  clearStrafe();
+		//}
+
+		//if (!Input.anyKey) {
+		//  clearWalk();
+		//  clearStrafe();
+		//}
 	}
 }

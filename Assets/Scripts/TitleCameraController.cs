@@ -3,6 +3,9 @@ using System.Collections;
 
 public class TitleCameraController : MonoBehaviour {
 
+	public delegate void TitleCameraAction();
+	public static event TitleCameraAction OnFinishedZooming;
+
 	private GameObject girl; // the protagonist of the story
 	private GameObject title; // game title shown in the sky at the beginning of the scene
 	private Camera mainCamera;
@@ -43,10 +46,14 @@ public class TitleCameraController : MonoBehaviour {
 
 	private IEnumerator zoomToGirl() {
 		float distance = Vector3.Distance(this.transform.position, girl.transform.position);
-		if (distance > 10.0) {
+		if (distance > 7.0) {
 			transform.position += transform.forward * Time.deltaTime * 20;
 		} else {
 			yield return new WaitForSeconds(2);
+
+			if (OnFinishedZooming != null) {
+				OnFinishedZooming(); // call event after finishing
+			}
 			zooming = false;
 		}
 	}
@@ -56,13 +63,11 @@ public class TitleCameraController : MonoBehaviour {
 		if (started) {
 			StartCoroutine(waitForSpecifiedTime());
 		} else if (rotating) {
-			// rotateToGirl();
 			StartCoroutine(rotateToGirl());
 		} else if (zooming) {
 			StartCoroutine(zoomToGirl());
 		} else {
 			this.enabled = false;
-			// mainCamera.enabled = true;
 		}
 	}
 }

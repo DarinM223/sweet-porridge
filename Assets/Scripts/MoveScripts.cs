@@ -6,6 +6,7 @@ public static class MoveScripts {
 	 * Function for object1 to rotate to face object2
 	 * @param {GameObject} object1 the object that rotates
 	 * @param {GameObject} object2 the object to rotate to
+	 * @return {Quaternion} the rotation quad
 	 */
 	public static Quaternion RotateToFace(Transform object1, Transform object2) {
 		Quaternion targetRotation = Quaternion.LookRotation (object2.position - object1.position);
