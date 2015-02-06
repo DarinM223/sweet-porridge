@@ -12,4 +12,11 @@ public static class MoveScripts {
 		var str = Mathf.Min (1 * Time.deltaTime, 1);
 		object1.rotation = Quaternion.Lerp (object1.rotation, targetRotation, str);
 	}
+
+	public static void HideObject(GameObject obj, bool isHidden) {
+		Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+		foreach (Renderer r in renderers) {
+			r.enabled = !isHidden;
+		}
+	}
 }
