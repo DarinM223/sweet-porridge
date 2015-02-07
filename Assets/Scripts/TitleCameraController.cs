@@ -8,18 +8,32 @@ public class TitleCameraController : MonoBehaviour {
 
 	private GameObject girl; // the protagonist of the story
 	private GameObject title; // game title shown in the sky at the beginning of the scene
-	private Camera mainCamera;
+	private Camera momCamera;
+	private Camera girlCamera;
 	private Time startTime;
 	private bool started;
 	private bool rotating;
 	private bool zooming;
 
+	void OnEnable() {
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+	}
+
+	void OnDisable() {
+		SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
+	}
+
+	void afterGirlRotated() {
+		this.camera.active = false;
+		momCamera.enabled = true;
+	}
+
 	// Use this for initialization
 	void Start () {
 		girl = GameObject.Find("Schoolgirl");
 		title = GameObject.Find("Title");
-		mainCamera = GameObject.Find("MainCamera").camera;
-		mainCamera.enabled = false;
+		momCamera = GameObject.Find("MomCamera").camera;
+		girlCamera = GameObject.Find("GirlCamera").camera;
 		started = true;
 		rotating = false;
 		zooming = false;
@@ -35,7 +49,7 @@ public class TitleCameraController : MonoBehaviour {
 
 	private IEnumerator rotateToGirl() {
 		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, girl.transform);
-		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
+		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .00001) {
 			yield return new WaitForSeconds(1);
 			rotating = false;
 			zooming = true;
@@ -46,7 +60,7 @@ public class TitleCameraController : MonoBehaviour {
 
 	private IEnumerator zoomToGirl() {
 		float distance = Vector3.Distance(this.transform.position, girl.transform.position);
-		if (distance > 7.0) {
+		if (distance > 10.0) {
 			transform.position += transform.forward * Time.deltaTime * 20;
 		} else {
 			yield return new WaitForSeconds(2);
@@ -67,7 +81,7 @@ public class TitleCameraController : MonoBehaviour {
 		} else if (zooming) {
 			StartCoroutine(zoomToGirl());
 		} else {
-			this.enabled = false;
+			// this.enabled = false;
 		}
 	}
 }

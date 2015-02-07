@@ -10,7 +10,6 @@ public class SchoolgirlController : MonoBehaviour {
 	private GameObject oldWoman;
 	private GameObject mom;
 	private GameObject pot;
-	private Camera camera;
 
 	private Animator animator;
 	private int walkingState;
@@ -19,6 +18,7 @@ public class SchoolgirlController : MonoBehaviour {
 
 	private bool facingForward = true;
 	private bool finishedZooming = false;
+	private bool finishedRotating = false;
 
 	private void afterTitleCameraFinished() {
 		this.finishedZooming = true;
@@ -36,7 +36,6 @@ public class SchoolgirlController : MonoBehaviour {
 	void Start () {
 		oldWoman = GameObject.Find ("Old_Ass_Woman");
 		mom = GameObject.Find("Mom");
-		camera = GameObject.Find ("MainCamera").camera;
 		pot = GameObject.Find ("Pot");
 		animator = GetComponent<Animator> ();
 	}
@@ -83,8 +82,9 @@ public class SchoolgirlController : MonoBehaviour {
 		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
 			yield return new WaitForSeconds(2);
 
-			if (OnFinishedRotating != null) {
+			if (OnFinishedRotating != null && finishedRotating == false) {
 				OnFinishedRotating(); // call event after finishing
+				finishedRotating = true;
 			}
 		} else {
 			this.transform.rotation = rotTrans;
@@ -97,44 +97,5 @@ public class SchoolgirlController : MonoBehaviour {
 		if (this.finishedZooming) {
 			StartCoroutine(rotateToFaceMom());
 		}
-
-		//var dist = Vector3.Distance(oldWoman.transform.position, transform.position);
-
-		//float walkingSpeed = Input.GetAxis("Vertical");
-
-		//if (walkingSpeed > 0) {
-		//  walkingState = (int)walkingSpeed+1;
-		//} else if (walkingSpeed < 0) {
-		//  walkingState = (int)walkingSpeed-1;
-		//} else {
-		//  walkingState = 0;
-		//}
-
-		//if (walkingState != 0) {
-		//  processWalk();
-		//} else {
-		//  clearWalk();
-		//}
-
-		//float rotateSpeed = Input.GetAxis("Horizontal");
-
-		//if (rotateSpeed > 0) {
-		//  strafeState = (int)rotateSpeed+1;
-		//} else if (rotateSpeed < 0) {
-		//  strafeState = (int)rotateSpeed-1;
-		//} else {
-		//  strafeState = 0;
-		//}
-
-		//if (strafeState != 0) {
-		//  processStrafe();
-		//} else {
-		//  clearStrafe();
-		//}
-
-		//if (!Input.anyKey) {
-		//  clearWalk();
-		//  clearStrafe();
-		//}
 	}
 }

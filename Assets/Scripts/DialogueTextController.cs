@@ -7,12 +7,24 @@ public class DialogueTextController : MonoBehaviour {
 		this.guiText.text = "HEY BUCKYY!!";
 	}
 
+	void afterGirlRotated() {
+		this.guiText.text = "There is no more food left. Go outside and try to find some delicious porridge";
+	}
+
+	void afterMomTalked() {
+		this.guiText.text = "kk";
+	}
+
 	void OnEnable() {
 		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		MomController.OnFinishedTalking += afterMomTalked;
 	}
 
 	void OnDisable() {
 		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		MomController.OnFinishedTalking -= afterMomTalked;
 	}
 
 	// Use this for initialization
@@ -22,6 +34,6 @@ public class DialogueTextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }
