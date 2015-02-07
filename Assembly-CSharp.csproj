@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
+     <Compile Include="Assets\Scripts\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\MoveScripts.cs" />
      <Compile Include="Assets\Scripts\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\TitleCameraController.cs" />

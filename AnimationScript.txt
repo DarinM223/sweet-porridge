@@ -1,7 +1,7 @@
 *  1. Camera starts off at title
 *  2. Camera looks at the trailer house
 *  3. Camera zooms in until it sees the girl
-   4. Text: "Hey bucky!"
+*  4. Text: "Hey bucky!"
 *  5. Girl turns around to face mom
    6. Change camera to camera focusing on mom as she speaks
    7. "There is no more food left. Go outside and try to find some delicious porridge"

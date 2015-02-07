@@ -42,6 +42,7 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
 'Assets/Fantasy Skybox FREE/Scripts/FSPlayer.cs'
+'Assets/Scripts/DialogueTextController.cs'
 'Assets/Scripts/MoveScripts.cs'
 'Assets/Scripts/SchoolgirlController.cs'
 'Assets/Scripts/TitleCameraController.cs'
