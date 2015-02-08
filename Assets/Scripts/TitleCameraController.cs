@@ -48,7 +48,8 @@ public class TitleCameraController : MonoBehaviour {
 	}
 
 	private IEnumerator rotateToGirl() {
-		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, girl.transform);
+		Vector3 newPos = new Vector3(girl.transform.position.x, girl.transform.position.y+5, girl.transform.position.z);
+		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, newPos);
 		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .00001) {
 			yield return new WaitForSeconds(1);
 			rotating = false;

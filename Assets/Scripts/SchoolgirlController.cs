@@ -104,19 +104,19 @@ public class SchoolgirlController : MonoBehaviour {
 	}
 
 	private IEnumerator strafeWalk() {
-		print("Strafing!");
 		animator.SetInteger("Strafing", -1);
 		yield return new WaitForSeconds(2);
 		animator.SetInteger("Strafing", 0);
 		animator.SetInteger("Walking", 1);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		animator.SetInteger("Walking", 0);
+		invisibleBox.SendMessage("fadeOut");
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (this.rotating) {
-			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, mom.transform);
+			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, mom.transform.position);
 			if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
 				if (this.finishedRotating == false) {
 					this.finishedRotating = true;
@@ -127,7 +127,7 @@ public class SchoolgirlController : MonoBehaviour {
 				this.transform.rotation = rotTrans;
 			}
 		} else if (this.rotating180) {
-			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, invisibleBox.transform);
+			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, invisibleBox.transform.position);
 			if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
 				if (this.finishedRotating180 == false) {
 					this.finishedRotating180 = true;

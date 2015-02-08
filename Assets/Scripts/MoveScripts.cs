@@ -8,8 +8,8 @@ public static class MoveScripts {
 	 * @param {GameObject} object2 the object to rotate to
 	 * @return {Quaternion} the rotation quad
 	 */
-	public static Quaternion RotateToFace(Transform object1, Transform object2) {
-		Quaternion targetRotation = Quaternion.LookRotation (object2.position - object1.position);
+	public static Quaternion RotateToFace(Transform object1, Vector3 position) {
+		Quaternion targetRotation = Quaternion.LookRotation (position - object1.position);
 		var str = Mathf.Min (1 * Time.deltaTime, 1);
 		return Quaternion.Lerp (object1.rotation, targetRotation, str);
 	}

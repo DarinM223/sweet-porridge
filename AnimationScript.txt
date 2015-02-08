@@ -7,4 +7,11 @@
 *  7. "There is no more food left. Go outside and try to find some delicious porridge"
 *  8. Change camera to camera focusing on girl as she speaks
 *  9. "kk"
-  10. Girl turns around and walks to the door
+* 10. Girl turns around and walks to the door
+  11. Fade out then fade in
+  12. First person controller girl is outside
+  13. Camera zooms into girl
+  14. Switch camera to first person controller
+  15. When girl reaches forest, fade out and fade into new scene
+  16. New scene is forest
+  17. 

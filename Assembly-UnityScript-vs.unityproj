@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\FadeInOut.js" />
      <Compile Include="Assets\Water FX Pack\Scripts\ScrollUV.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
