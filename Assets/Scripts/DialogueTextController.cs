@@ -15,15 +15,21 @@ public class DialogueTextController : MonoBehaviour {
 		this.guiText.text = "kk";
 	}
 
+	void afterGirlTalked() {
+		this.guiText.text = "";
+	}
+
 	void OnEnable() {
 		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
 		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedTalking += afterGirlTalked;
 		MomController.OnFinishedTalking += afterMomTalked;
 	}
 
 	void OnDisable() {
 		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
 		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedTalking -= afterGirlTalked;
 		MomController.OnFinishedTalking -= afterMomTalked;
 	}
 

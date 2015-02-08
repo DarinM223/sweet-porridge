@@ -5,11 +5,13 @@ public class SchoolgirlController : MonoBehaviour {
 
 	public delegate void SchoolgirlAction();
 	public static event SchoolgirlAction OnFinishedRotating;
+	public static event SchoolgirlAction OnFinishedTalking;
+	public static event SchoolgirlAction OnFinishedRotate180;
 
 	private RaycastHit hit;
-	private GameObject oldWoman;
 	private GameObject mom;
 	private GameObject pot;
+	private GameObject invisibleBox;
 
 	private Animator animator;
 	private int walkingState;
@@ -17,26 +19,43 @@ public class SchoolgirlController : MonoBehaviour {
 	private int rotateState;
 
 	private bool facingForward = true;
-	private bool finishedZooming = false;
+	private bool rotating = false;
+	private bool rotating180 = false;
 	private bool finishedRotating = false;
+	private bool finishedRotating180 = false;
+	private bool walking = false;
 
 	private void afterTitleCameraFinished() {
-		this.finishedZooming = true;
+		this.rotating = true;
+	}
+
+	private IEnumerator doTalking() {
+		yield return new WaitForSeconds(3);
+		if (OnFinishedTalking != null) {
+			OnFinishedTalking();
+			this.rotating180 = true;
+		}
+	}
+
+	private void afterMomTalked() {
+		StartCoroutine(doTalking());
 	}
 
 	void OnEnable() {
 		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
+		MomController.OnFinishedTalking += afterMomTalked;
 	}
 
 	void OnDisable() {
 		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
+		MomController.OnFinishedTalking -= afterMomTalked;
 	}
 
 	// Use this for initialization
 	void Start () {
-		oldWoman = GameObject.Find ("Old_Ass_Woman");
 		mom = GameObject.Find("Mom");
 		pot = GameObject.Find ("Pot");
+		invisibleBox = GameObject.Find("InvisibleBox");
 		animator = GetComponent<Animator> ();
 	}
 
@@ -77,25 +96,47 @@ public class SchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Strafing", 0);
 	}
 
-	private IEnumerator rotateToFaceMom() {
-		Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, mom.transform);
-		if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
-			yield return new WaitForSeconds(2);
-
-			if (OnFinishedRotating != null && finishedRotating == false) {
-				OnFinishedRotating(); // call event after finishing
-				finishedRotating = true;
-			}
-		} else {
-			this.transform.rotation = rotTrans;
+	private IEnumerator rotationCoroutine() {
+		yield return new WaitForSeconds(1);
+		if (OnFinishedRotating != null) {
+			OnFinishedRotating(); // call event after finishing
 		}
 	}
 
+	private IEnumerator strafeWalk() {
+		print("Strafing!");
+		animator.SetInteger("Strafing", -1);
+		yield return new WaitForSeconds(2);
+		animator.SetInteger("Strafing", 0);
+		animator.SetInteger("Walking", 1);
+		yield return new WaitForSeconds(2);
+		animator.SetInteger("Walking", 0);
+	}
 
 	// Update is called once per frame
 	void Update () {
-		if (this.finishedZooming) {
-			StartCoroutine(rotateToFaceMom());
+		if (this.rotating) {
+			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, mom.transform);
+			if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
+				if (this.finishedRotating == false) {
+					this.finishedRotating = true;
+					this.rotating = false;
+					StartCoroutine(rotationCoroutine());
+				}
+			} else {
+				this.transform.rotation = rotTrans;
+			}
+		} else if (this.rotating180) {
+			Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, invisibleBox.transform);
+			if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001) {
+				if (this.finishedRotating180 == false) {
+					this.finishedRotating180 = true;
+					this.rotating180 = false;
+					StartCoroutine(strafeWalk());
+				}
+			} else {
+				this.transform.rotation = rotTrans;
+			}
 		}
 	}
 }

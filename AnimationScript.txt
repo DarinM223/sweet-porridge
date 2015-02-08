@@ -5,6 +5,6 @@
 *  5. Girl turns around to face mom
 *  6. Change camera to camera focusing on mom as she speaks
 *  7. "There is no more food left. Go outside and try to find some delicious porridge"
-   8. Change camera to camera focusing on girl as she speaks
-   9. "kk"
-  10. Go back to girl camera and follow her as she walks into the forest
+*  8. Change camera to camera focusing on girl as she speaks
+*  9. "kk"
+  10. Girl turns around and walks to the door

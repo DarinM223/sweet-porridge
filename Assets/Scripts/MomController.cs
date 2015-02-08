@@ -8,7 +8,7 @@ public class MomController : MonoBehaviour {
 	private bool isTalking = false;
 
 	IEnumerator wait() {
-		yield return new WaitForSeconds(4);
+		yield return new WaitForSeconds(6);
 		this.isTalking = false;
 		if (OnFinishedTalking != null) {
 			OnFinishedTalking(); // call event after waiting
@@ -30,7 +30,6 @@ public class MomController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
