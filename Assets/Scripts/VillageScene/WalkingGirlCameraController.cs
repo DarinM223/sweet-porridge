@@ -14,13 +14,13 @@ public class WalkingGirlCameraController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		SchoolgirlController.OnFinishedFadeIn += afterFadeIn;
-		SchoolgirlController.OnFinishedWalking += afterFinishedWalking;
+		VillageSchoolgirlController.OnFinishedFadeIn += afterFadeIn;
+		VillageSchoolgirlController.OnFinishedWalking += afterFinishedWalking;
 	}
 
 	void OnDisable() {
-		SchoolgirlController.OnFinishedFadeIn -= afterFadeIn;
-		SchoolgirlController.OnFinishedWalking -= afterFinishedWalking;
+		VillageSchoolgirlController.OnFinishedFadeIn -= afterFadeIn;
+		VillageSchoolgirlController.OnFinishedWalking -= afterFinishedWalking;
 	}
 
 	// Use this for initialization

@@ -21,11 +21,11 @@ public class MomController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
 	}
 
 	void OnDisable() {
-		SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedRotating -= afterGirlRotated;
 	}
 
 	// Use this for initialization

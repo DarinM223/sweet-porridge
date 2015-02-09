@@ -47,13 +47,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
-     <Compile Include="Assets\Scripts\DialogueTextController.cs" />
-     <Compile Include="Assets\Scripts\MomCameraController.cs" />
-     <Compile Include="Assets\Scripts\MomController.cs" />
+     <Compile Include="Assets\Scripts\ForestScene\ForestDialogueController.cs" />
+     <Compile Include="Assets\Scripts\ForestScene\ForestSchoolgirlController.cs" />
+     <Compile Include="Assets\Scripts\ForestScene\PotController.cs" />
      <Compile Include="Assets\Scripts\MoveScripts.cs" />
-     <Compile Include="Assets\Scripts\SchoolgirlController.cs" />
-     <Compile Include="Assets\Scripts\TitleCameraController.cs" />
-     <Compile Include="Assets\Scripts\WalkingGirlCameraController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\DialogueTextController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\MomCameraController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\MomController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\TitleCameraController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\VillageSchoolgirlController.cs" />
+     <Compile Include="Assets\Scripts\VillageScene\WalkingGirlCameraController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
   </ItemGroup>

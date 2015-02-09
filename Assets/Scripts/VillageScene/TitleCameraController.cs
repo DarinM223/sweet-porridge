@@ -16,11 +16,11 @@ public class TitleCameraController : MonoBehaviour {
 	private bool zooming;
 
 	void OnEnable() {
-		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
 	}
 
 	void OnDisable() {
-		SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedRotating -= afterGirlRotated;
 	}
 
 	void afterGirlRotated() {

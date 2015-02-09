@@ -1,3 +1,4 @@
+Scene 1:
 *  1. Camera starts off at title
 *  2. Camera looks at the trailer house
 *  3. Camera zooms in until it sees the girl
@@ -8,10 +9,20 @@
 *  8. Change camera to camera focusing on girl as she speaks
 *  9. "kk"
 * 10. Girl turns around and walks to the door
-  11. Fade out then fade in
-  12. First person controller girl is outside
-  13. Camera zooms into girl
-  14. Switch camera to first person controller
-  15. When girl reaches forest, fade out and fade into new scene
-  16. New scene is forest
-  17. 
+* 11. Fade out then fade in
+* 12. Girl walks to forest
+* 15. When girl reaches forest, fade out 
+
+Scene 2:
+   1. Fade into new scene (forest)
+   2. Another scene of girl walking through the forest
+   3. Zoom in on the pot
+   4. Camera switches to old woman
+   5. Text: "cook, little pot, cook"
+   6. Pot cooks porridge (Particle emitter)
+   7. Text: "stop, little pot, stop"
+   8. Pot stops cooking (Particle emitter stops)
+   9. Girl jumps up and down
+  10. Fade out
+
+

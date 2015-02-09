@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SchoolgirlController : MonoBehaviour {
+public class VillageSchoolgirlController : MonoBehaviour {
 
 	public delegate void SchoolgirlAction();
 	public static event SchoolgirlAction OnFinishedRotating;

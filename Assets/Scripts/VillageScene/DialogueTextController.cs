@@ -21,15 +21,15 @@ public class DialogueTextController : MonoBehaviour {
 
 	void OnEnable() {
 		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
-		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
-		SchoolgirlController.OnFinishedTalking += afterGirlTalked;
+		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedTalking += afterGirlTalked;
 		MomController.OnFinishedTalking += afterMomTalked;
 	}
 
 	void OnDisable() {
 		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
-		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
-		SchoolgirlController.OnFinishedTalking -= afterGirlTalked;
+		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		VillageSchoolgirlController.OnFinishedTalking -= afterGirlTalked;
 		MomController.OnFinishedTalking -= afterMomTalked;
 	}
 
