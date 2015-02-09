@@ -13,6 +13,8 @@ public class SchoolgirlController : MonoBehaviour {
 	private GameObject pot;
 	private GameObject invisibleBox;
 
+	private Camera girlCamera;
+
 	private Animator animator;
 	private int walkingState;
 	private int strafeState;
@@ -56,6 +58,7 @@ public class SchoolgirlController : MonoBehaviour {
 		mom = GameObject.Find("Mom");
 		pot = GameObject.Find ("Pot");
 		invisibleBox = GameObject.Find("InvisibleBox");
+		girlCamera = GameObject.Find("GirlCamera").camera;
 		animator = GetComponent<Animator> ();
 	}
 
@@ -111,6 +114,11 @@ public class SchoolgirlController : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		animator.SetInteger("Walking", 0);
 		invisibleBox.SendMessage("fadeOut");
+		yield return new WaitForSeconds(2);
+		transform.Translate(Vector3.forward * 20);
+		girlCamera.enabled = false;
+		yield return new WaitForSeconds(2);
+		invisibleBox.SendMessage("fadeIn");
 	}
 
 	// Update is called once per frame
