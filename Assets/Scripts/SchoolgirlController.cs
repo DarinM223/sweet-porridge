@@ -7,6 +7,8 @@ public class SchoolgirlController : MonoBehaviour {
 	public static event SchoolgirlAction OnFinishedRotating;
 	public static event SchoolgirlAction OnFinishedTalking;
 	public static event SchoolgirlAction OnFinishedRotate180;
+	public static event SchoolgirlAction OnFinishedFadeIn;
+	public static event SchoolgirlAction OnFinishedWalking;
 
 	private RaycastHit hit;
 	private GameObject mom;
@@ -99,8 +101,7 @@ public class SchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Strafing", 0);
 	}
 
-	private IEnumerator rotationCoroutine() {
-		yield return new WaitForSeconds(1);
+	private void rotationCoroutine() {
 		if (OnFinishedRotating != null) {
 			OnFinishedRotating(); // call event after finishing
 		}
@@ -118,7 +119,18 @@ public class SchoolgirlController : MonoBehaviour {
 		transform.Translate(Vector3.forward * 20);
 		girlCamera.enabled = false;
 		yield return new WaitForSeconds(2);
+		if (OnFinishedFadeIn != null) {
+			OnFinishedFadeIn(); // send fade in completed event
+		}
 		invisibleBox.SendMessage("fadeIn");
+		animator.SetInteger("Walking", 1);
+		animator.speed = 2;
+		yield return new WaitForSeconds(20);
+		if (OnFinishedWalking != null) {
+			OnFinishedWalking(); // send finished walking event
+		}
+		animator.SetInteger("Walking", 0);
+		invisibleBox.SendMessage("fadeOut");
 	}
 
 	// Update is called once per frame
@@ -129,7 +141,7 @@ public class SchoolgirlController : MonoBehaviour {
 				if (this.finishedRotating == false) {
 					this.finishedRotating = true;
 					this.rotating = false;
-					StartCoroutine(rotationCoroutine());
+					rotationCoroutine();
 				}
 			} else {
 				this.transform.rotation = rotTrans;

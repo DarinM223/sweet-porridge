@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\MoveScripts.cs" />
      <Compile Include="Assets\Scripts\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\TitleCameraController.cs" />
+     <Compile Include="Assets\Scripts\WalkingGirlCameraController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
   </ItemGroup>
