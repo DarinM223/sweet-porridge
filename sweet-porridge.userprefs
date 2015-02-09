@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Downloads/Camera1Controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Character Controllers/Sources/Scripts/ThirdPersonCamera.js">
     <Files>
-      <File FileName="../../../../Downloads/Camera1Controller.cs" Line="42" Column="12" />
-      <File FileName="Assets/Scripts/TitleCameraController.cs" Line="88" Column="1" />
-      <File FileName="Assets/Scripts/SchoolgirlController.cs" Line="142" Column="1" />
+      <File FileName="../../../../Downloads/Camera1Controller.cs" Line="54" Column="19" />
       <File FileName="../../../../Downloads/Camera1Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/ThirdPersonCamera.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

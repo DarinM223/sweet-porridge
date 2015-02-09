@@ -5,10 +5,16 @@ public class InvisibleWallController : MonoBehaviour {
 
 	private GameObject invisibleBox;
 
+	private IEnumerator loadNewLevel() {
+		invisibleBox.SendMessage("fadeOut");
+		yield return new WaitForSeconds(2);
+		// load second scene
+		Application.LoadLevel(1);
+	}
+
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.name == "FPSGirl") {
-			invisibleBox.SendMessage("fadeOut");
-			// load second scene
+			StartCoroutine(loadNewLevel());
 		}
 	}
 

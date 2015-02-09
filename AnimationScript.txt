@@ -15,14 +15,12 @@ Scene 1:
 
 Scene 2:
    1. Fade into new scene (forest)
-   2. Another scene of girl walking through the forest
-   3. Zoom in on the pot
-   4. Camera switches to old woman
-   5. Text: "cook, little pot, cook"
-   6. Pot cooks porridge (Particle emitter)
-   7. Text: "stop, little pot, stop"
-   8. Pot stops cooking (Particle emitter stops)
-   9. Girl jumps up and down
-  10. Fade out
+*  2. Another scene of girl walking through the forest
+*  3. Text: "cook, little pot, cook"
+*  4. Pot cooks porridge (Particle emitter)
+*  5. Text: "stop, little pot, stop"
+*  6. Pot stops cooking (Particle emitter stops)
+   7. Girl jumps up and down
+   8. Fade out
 
 

@@ -4,11 +4,12 @@ using System.Collections;
 public class ForestDialogueController : MonoBehaviour {
 
 	private IEnumerator doDialogue() {
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(4);
 		this.guiText.text = "cook, little pot, cook";
-		yield return new WaitForSeconds(6);
+		yield return new WaitForSeconds(8);
 		this.guiText.text = "stop, little pot, stop";
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(6);
+		this.guiText.text = "You can have this pot";
 	}
 
 	private void afterGirlWalked() {

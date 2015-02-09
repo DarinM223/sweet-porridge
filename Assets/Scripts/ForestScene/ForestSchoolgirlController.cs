@@ -10,7 +10,7 @@ public class ForestSchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Walking", 1);
 		yield return new WaitForSeconds(2);
 		animator.SetInteger("Walking", 0);
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(2);
 		if (OnFinishedWalking != null) {
 			OnFinishedWalking();
 		}
