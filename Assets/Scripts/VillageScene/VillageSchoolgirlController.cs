@@ -14,6 +14,7 @@ public class VillageSchoolgirlController : MonoBehaviour {
 	private GameObject mom;
 	private GameObject pot;
 	private GameObject invisibleBox;
+	private GameObject fpsGirl;
 
 	private Camera girlCamera;
 
@@ -60,6 +61,8 @@ public class VillageSchoolgirlController : MonoBehaviour {
 		mom = GameObject.Find("Mom");
 		pot = GameObject.Find ("Pot");
 		invisibleBox = GameObject.Find("InvisibleBox");
+		fpsGirl = GameObject.Find("FPSGirl");
+		fpsGirl.active = false;
 		girlCamera = GameObject.Find("GirlCamera").camera;
 		animator = GetComponent<Animator> ();
 	}
@@ -116,21 +119,8 @@ public class VillageSchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Walking", 0);
 		invisibleBox.SendMessage("fadeOut");
 		yield return new WaitForSeconds(2);
-		transform.Translate(Vector3.forward * 20);
-		girlCamera.enabled = false;
-		yield return new WaitForSeconds(2);
-		if (OnFinishedFadeIn != null) {
-			OnFinishedFadeIn(); // send fade in completed event
-		}
+		fpsGirl.active = true;
 		invisibleBox.SendMessage("fadeIn");
-		animator.SetInteger("Walking", 1);
-		animator.speed = 2;
-		yield return new WaitForSeconds(20);
-		if (OnFinishedWalking != null) {
-			OnFinishedWalking(); // send finished walking event
-		}
-		animator.SetInteger("Walking", 0);
-		invisibleBox.SendMessage("fadeOut");
 	}
 
 	// Update is called once per frame

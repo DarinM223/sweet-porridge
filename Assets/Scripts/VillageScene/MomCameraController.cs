@@ -6,6 +6,7 @@ public class MomCameraController : MonoBehaviour {
 
 	void afterMomTalked() {
 		this.camera.active = false;
+		girlCamera.active = true;
 	}
 
 	void OnEnable() {
