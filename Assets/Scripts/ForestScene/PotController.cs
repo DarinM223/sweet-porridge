@@ -7,10 +7,10 @@ public class PotController : MonoBehaviour {
 	private GameObject porridgeCooking;
 
 	private IEnumerator doCookCoroutine() {
-		yield return new WaitForSeconds(6);
+		yield return new WaitForSeconds(14);
 		cookingSteam.active = true;
 		porridgeCooking.active = true;
-		yield return new WaitForSeconds(8);
+		yield return new WaitForSeconds(10);
 		cookingSteam.active = false;
 		porridgeCooking.active = false;
 	}

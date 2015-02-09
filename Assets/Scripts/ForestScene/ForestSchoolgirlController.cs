@@ -16,6 +16,18 @@ public class ForestSchoolgirlController : MonoBehaviour {
 		}
 	}
 
+	private void onFinished() {
+		animator.SetInteger("Jumping", 1);
+	}
+
+	private void OnEnable() {
+		ForestDialogueController.OnFinished += onFinished;
+	}
+
+	private void OnDisable() {
+		ForestDialogueController.OnFinished -= onFinished;
+	}
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();

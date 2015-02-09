@@ -8,11 +8,11 @@ public class DialogueTextController : MonoBehaviour {
 	}
 
 	void afterGirlRotated() {
-		this.guiText.text = "Mom: We are out of food... We won't survive much longer";
+		this.guiText.text = "There is no more food left. Go outside and try to find some delicious porridge";
 	}
 
 	void afterMomTalked() {
-		this.guiText.text = "Girl: I'll go into the forest and try to get some food"; 
+		this.guiText.text = "kk";
 	}
 
 	void afterGirlTalked() {
