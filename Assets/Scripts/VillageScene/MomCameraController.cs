@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Village {
+
 public class MomCameraController : MonoBehaviour {
 	private Camera girlCamera;
 
@@ -26,4 +28,6 @@ public class MomCameraController : MonoBehaviour {
 	void Update () {
 	
 	}
+}
+
 }

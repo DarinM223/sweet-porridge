@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Village {
+
 public class TitleCameraController : MonoBehaviour {
 
 	public delegate void TitleCameraAction();
@@ -16,11 +18,11 @@ public class TitleCameraController : MonoBehaviour {
 	private bool zooming;
 
 	void OnEnable() {
-		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
 	}
 
 	void OnDisable() {
-		VillageSchoolgirlController.OnFinishedRotating -= afterGirlRotated;
+		SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
 	}
 
 	void afterGirlRotated() {
@@ -85,4 +87,6 @@ public class TitleCameraController : MonoBehaviour {
 			// this.enabled = false;
 		}
 	}
+}
+
 }

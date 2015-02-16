@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Forest {
+
 public class PotController : MonoBehaviour {
 
 	private GameObject cookingSteam;
@@ -20,11 +22,11 @@ public class PotController : MonoBehaviour {
 	}	
 
 	void OnEnable() {
-		ForestSchoolgirlController.OnFinishedWalking += afterGirlWalked;
+		SchoolgirlController.OnFinishedWalking += afterGirlWalked;
 	}
 
 	void OnDisable() {
-		ForestSchoolgirlController.OnFinishedWalking -= afterGirlWalked;
+		SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
 	}
 
 	// Use this for initialization
@@ -39,4 +41,6 @@ public class PotController : MonoBehaviour {
 	void Update () {
 	
 	}
+}
+
 }

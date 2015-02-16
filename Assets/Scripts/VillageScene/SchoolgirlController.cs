@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VillageSchoolgirlController : MonoBehaviour {
+namespace Village {
+
+public class SchoolgirlController : MonoBehaviour {
 
 	public delegate void SchoolgirlAction();
 	public static event SchoolgirlAction OnFinishedRotating;
@@ -117,10 +119,10 @@ public class VillageSchoolgirlController : MonoBehaviour {
 		animator.SetInteger("Walking", 1);
 		yield return new WaitForSeconds(1);
 		animator.SetInteger("Walking", 0);
-		invisibleBox.SendMessage("fadeOut");
+		invisibleBox.SendMessage("FadeOut");
 		yield return new WaitForSeconds(2);
 		fpsGirl.active = true;
-		invisibleBox.SendMessage("fadeIn");
+		invisibleBox.SendMessage("FadeIn");
 	}
 
 	// Update is called once per frame
@@ -149,4 +151,6 @@ public class VillageSchoolgirlController : MonoBehaviour {
 			}
 		}
 	}
+}
+
 }

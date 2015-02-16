@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Village {
+
 public class InvisibleWallController : MonoBehaviour {
 
 	private GameObject invisibleBox;
 
 	private IEnumerator loadNewLevel() {
-		invisibleBox.SendMessage("fadeOut");
+		invisibleBox.SendMessage("FadeOut");
 		yield return new WaitForSeconds(2);
 		// load second scene
 		Application.LoadLevel(1);
@@ -27,4 +29,6 @@ public class InvisibleWallController : MonoBehaviour {
 	void Update () {
 	
 	}
+}
+
 }

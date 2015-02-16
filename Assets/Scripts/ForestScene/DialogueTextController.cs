@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ForestDialogueController : MonoBehaviour {
+namespace Forest {
+
+public class DialogueTextController : MonoBehaviour {
 	public delegate void DialogueAction();
 	public static event DialogueAction OnFinished;
 
@@ -33,11 +35,11 @@ public class ForestDialogueController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		ForestSchoolgirlController.OnFinishedWalking += afterGirlWalked;
+		SchoolgirlController.OnFinishedWalking += afterGirlWalked;
 	}
 
 	void OnDisable() {
-		ForestSchoolgirlController.OnFinishedWalking -= afterGirlWalked;
+		SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
 	}
 
 	// Use this for initialization
@@ -51,4 +53,6 @@ public class ForestDialogueController : MonoBehaviour {
 	void Update () {
 	
 	}
+}
+
 }

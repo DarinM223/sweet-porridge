@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Village {
+
 public class DialogueTextController : MonoBehaviour {
 
 	void afterTitleCameraFinished() {
@@ -21,15 +23,15 @@ public class DialogueTextController : MonoBehaviour {
 
 	void OnEnable() {
 		TitleCameraController.OnFinishedZooming += afterTitleCameraFinished;
-		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
-		VillageSchoolgirlController.OnFinishedTalking += afterGirlTalked;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedTalking += afterGirlTalked;
 		MomController.OnFinishedTalking += afterMomTalked;
 	}
 
 	void OnDisable() {
 		TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
-		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
-		VillageSchoolgirlController.OnFinishedTalking -= afterGirlTalked;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedTalking -= afterGirlTalked;
 		MomController.OnFinishedTalking -= afterMomTalked;
 	}
 
@@ -42,4 +44,6 @@ public class DialogueTextController : MonoBehaviour {
 	void Update () {
 
 	}
+}
+
 }

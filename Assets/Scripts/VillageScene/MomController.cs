@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Village {
+
 public class MomController : MonoBehaviour {
 	public delegate void MomAction();
 	public static event MomAction OnFinishedTalking; 
@@ -21,11 +23,11 @@ public class MomController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		VillageSchoolgirlController.OnFinishedRotating += afterGirlRotated;
+		SchoolgirlController.OnFinishedRotating += afterGirlRotated;
 	}
 
 	void OnDisable() {
-		VillageSchoolgirlController.OnFinishedRotating -= afterGirlRotated;
+		SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
 	}
 
 	// Use this for initialization
@@ -38,4 +40,6 @@ public class MomController : MonoBehaviour {
 			// play talking animation
 		}
 	}
+}
+
 }
