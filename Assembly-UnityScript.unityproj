@@ -46,9 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Water FX Pack\Scripts\ScrollUV.js" />
+     <Compile Include="Assets\Imported Assets\Water FX Pack\Scripts\ScrollUV.js" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
+     <None Include="Assets\Imported Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

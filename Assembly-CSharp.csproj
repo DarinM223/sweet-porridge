@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
+     <Compile Include="Assets\Imported Assets\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
      <Compile Include="Assets\Scripts\FadeInOut.cs" />
      <Compile Include="Assets\Scripts\ForestScene\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\ForestScene\PotController.cs" />
@@ -59,7 +59,7 @@
      <Compile Include="Assets\Scripts\VillageScene\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\TitleCameraController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
+     <None Include="Assets\Imported Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
