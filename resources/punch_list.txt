@@ -1,0 +1,13 @@
+Punch list:
+
+1. Lighting: I added spotlights and point lights in the first scene, but I probably need to improve the lighting on the second scene since it only has a directional light
+
+2. Camera angles: I didn't know about Unity camera animations, so I did all of my camera animations through C# code using events, but it would look nicer if I used Unity camera movement to move the camera between points like in the very first showcase
+
+3. Sound: I hope I can add sound by the end of the class
+
+4. Animations: Right now I use Mixamo's animations instead of the Unity mocam animations and there are some problems with the legs when walking and I only have walking, strafing, and jumping.
+
+5. Gameplay: I want to have more interactive elements with the first person controller and have more triggers
+
+6. Story: I only managed to do two scenes for the showcase, and I want to finish the story by the end of the class. 
