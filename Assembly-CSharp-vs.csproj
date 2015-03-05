@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\VillageScene\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\TitleCameraController.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Imported Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/darin/Documents/git/unity/sweet-porridge/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
