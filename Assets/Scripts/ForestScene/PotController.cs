@@ -1,46 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Forest {
+namespace Forest
+{
+    public class PotController : MonoBehaviour
+    {
+        private GameObject cookingSteam;
+        private GameObject porridgeCooking;
 
-public class PotController : MonoBehaviour {
+        private IEnumerator doCookCoroutine()
+        {
+            yield return new WaitForSeconds(14);
+            cookingSteam.active = true;
+            porridgeCooking.active = true;
+            yield return new WaitForSeconds(10);
+            cookingSteam.active = false;
+            porridgeCooking.active = false;
+        }
 
-	private GameObject cookingSteam;
-	private GameObject porridgeCooking;
+        private void afterGirlWalked()
+        {
+            StartCoroutine(doCookCoroutine());
+        }
 
-	private IEnumerator doCookCoroutine() {
-		yield return new WaitForSeconds(14);
-		cookingSteam.active = true;
-		porridgeCooking.active = true;
-		yield return new WaitForSeconds(10);
-		cookingSteam.active = false;
-		porridgeCooking.active = false;
-	}
+        void OnEnable()
+        {
+            SchoolgirlController.OnFinishedWalking += afterGirlWalked;
+        }
 
-	private void afterGirlWalked() {
-		StartCoroutine(doCookCoroutine());
-	}	
+        void OnDisable()
+        {
+            SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
+        }
 
-	void OnEnable() {
-		SchoolgirlController.OnFinishedWalking += afterGirlWalked;
-	}
+        // Use this for initialization
+        void Start()
+        {
+            cookingSteam = GameObject.Find("CookingSteam");
+            porridgeCooking = GameObject.Find("PorridgeCooking");
+            cookingSteam.active = false;
+            porridgeCooking.active = false;
+        }
 
-	void OnDisable() {
-		SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
-	}
+        // Update is called once per frame
+        void Update()
+        {
 
-	// Use this for initialization
-	void Start () {
-		cookingSteam = GameObject.Find("CookingSteam");
-		porridgeCooking = GameObject.Find("PorridgeCooking");
-		cookingSteam.active = false;
-		porridgeCooking.active = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-}
-
+        }
+    }
 }
