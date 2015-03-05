@@ -18,16 +18,23 @@ public class SchoolgirlController : MonoBehaviour {
 		}
 	}
 
-	private void onFinished() {
-		animator.SetInteger("Jumping", 1);
+    private IEnumerator jump()
+    {
+        animator.SetInteger("Jumping", 1);
+        yield return new WaitForSeconds(4);
+        animator.SetInteger("Jumping", 0);
+    }
+
+	private void onWoot() {
+        StartCoroutine(jump());
 	}
 
 	private void OnEnable() {
-		DialogueTextController.OnFinished += onFinished;
+		DialogueTextController.OnWoot += onWoot;
 	}
 
 	private void OnDisable() {
-		DialogueTextController.OnFinished -= onFinished;
+		DialogueTextController.OnWoot -= onWoot;
 	}
 
 	// Use this for initialization

@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/VillageScene/InvisibleWallController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\VillageScene\InvisibleWallController.cs">
     <Files>
-      <File FileName="Assets/Scripts/VillageScene/InvisibleWallController.cs" Line="19" Column="35" />
+      <File FileName="Assets\Scripts\MoveScripts.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\VillageScene\InvisibleWallController.cs" Line="19" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

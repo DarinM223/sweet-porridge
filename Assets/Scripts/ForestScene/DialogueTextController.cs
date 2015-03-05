@@ -5,7 +5,7 @@ namespace Forest {
 
 public class DialogueTextController : MonoBehaviour {
 	public delegate void DialogueAction();
-	public static event DialogueAction OnFinished;
+	public static event DialogueAction OnWoot;
 
 	private GameObject theEnd;
 
@@ -22,8 +22,8 @@ public class DialogueTextController : MonoBehaviour {
 		this.guiText.text = "Old woman: You can have this pot of course I have an extra one ( ͡° ͜ʖ ͡°)";
 		yield return new WaitForSeconds(4);
 		this.guiText.text = "Girl: W0000TTT!!!";
-		if (OnFinished != null) {
-			OnFinished();
+		if (OnWoot != null) {
+			OnWoot();
 		}
 		yield return new WaitForSeconds(4);
 		MoveScripts.HideObject(theEnd, false);
