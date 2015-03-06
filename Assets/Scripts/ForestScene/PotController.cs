@@ -18,6 +18,11 @@ namespace Forest
             porridgeCooking.active = false;
         }
 
+        private void removePot()
+        {
+            this.active = false;
+        }
+
         private void afterGirlWalked()
         {
             StartCoroutine(doCookCoroutine());
@@ -26,11 +31,13 @@ namespace Forest
         void OnEnable()
         {
             SchoolgirlController.OnFinishedWalking += afterGirlWalked;
+            SchoolgirlController.OnPickedUpPot += removePot;
         }
 
         void OnDisable()
         {
             SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
+            SchoolgirlController.OnPickedUpPot -= removePot;
         }
 
         // Use this for initialization

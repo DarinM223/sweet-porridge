@@ -9,6 +9,7 @@ namespace Forest
         public static event DialogueAction OnWoot;
 
         private GameObject theEnd;
+        private GameObject invisibleCube;
 
         private IEnumerator doDialogue()
         {
@@ -29,7 +30,7 @@ namespace Forest
                 OnWoot();
             }
             yield return new WaitForSeconds(4);
-            MoveScripts.HideObject(theEnd, false);
+            // MoveScripts.HideObject(theEnd, false);
         }
 
         private void afterGirlWalked()
@@ -38,20 +39,35 @@ namespace Forest
             StartCoroutine(doDialogue());
         }
 
+        private IEnumerator loadNewLevel()
+        {
+            yield return new WaitForSeconds(2);
+            // load third level
+        }
+
+        private void onFinishLevel()
+        {
+            invisibleCube.SendMessage("FadeOut");
+            StartCoroutine(loadNewLevel());
+        }
+
         void OnEnable()
         {
             SchoolgirlController.OnFinishedWalking += afterGirlWalked;
+            SchoolgirlController.OnFinishedExiting += onFinishLevel;
         }
 
         void OnDisable()
         {
             SchoolgirlController.OnFinishedWalking -= afterGirlWalked;
+            SchoolgirlController.OnFinishedExiting -= onFinishLevel;
         }
 
         // Use this for initialization
         void Start()
         {
             theEnd = GameObject.Find("TheEnd");
+            invisibleCube = GameObject.Find("InvisibleCube");
             MoveScripts.HideObject(theEnd, true);
             this.guiText.text = "";
         }
