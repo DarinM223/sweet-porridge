@@ -7,9 +7,13 @@ Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-
 EndProject
 Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-CSharp-Editor.csproj", "{37F7C646-9920-4398-80A8-4ECFA88B249A}"
 EndProject
+Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-Boo-Editor.booproj", "{A3A71486-A05E-5558-ED94-10589ACDF467}"
+EndProject
 Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-UnityScript-firstpass.unityproj", "{274F314F-8A85-8278-D4B7-F962F73396A9}"
 EndProject
 Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-UnityScript.unityproj", "{19140924-5261-2FDF-D45B-076EDEB24414}"
+EndProject
+Project("{A7103A9D-F65B-5FCA-3350-83307125E2A4}") = "sweet-porridge", "Assembly-UnityScript-Editor.unityproj", "{97EBCA2E-01F6-8E39-B730-908E9AE9CE01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,10 @@ Global
 		{37F7C646-9920-4398-80A8-4ECFA88B249A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F7C646-9920-4398-80A8-4ECFA88B249A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F7C646-9920-4398-80A8-4ECFA88B249A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A71486-A05E-5558-ED94-10589ACDF467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A71486-A05E-5558-ED94-10589ACDF467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A71486-A05E-5558-ED94-10589ACDF467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A71486-A05E-5558-ED94-10589ACDF467}.Release|Any CPU.Build.0 = Release|Any CPU
 		{274F314F-8A85-8278-D4B7-F962F73396A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{274F314F-8A85-8278-D4B7-F962F73396A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274F314F-8A85-8278-D4B7-F962F73396A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,11 +45,15 @@ Global
 		{19140924-5261-2FDF-D45B-076EDEB24414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19140924-5261-2FDF-D45B-076EDEB24414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19140924-5261-2FDF-D45B-076EDEB24414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97EBCA2E-01F6-8E39-B730-908E9AE9CE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EBCA2E-01F6-8E39-B730-908E9AE9CE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EBCA2E-01F6-8E39-B730-908E9AE9CE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EBCA2E-01F6-8E39-B730-908E9AE9CE01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																															GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

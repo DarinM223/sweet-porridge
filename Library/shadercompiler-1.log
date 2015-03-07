@@ -1,23 +1,49 @@
-Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1598844460
+Base path: C:/Program Files (x86)/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-3000
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=2970 outsize=1659 ok=1
+  insize=1185 outsize=408 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=685 outsize=892 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=685 outsize=502 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=640 outsize=892 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=640 outsize=453 kw= ok=1
 Cmd: preprocess
-  insize=3344 outsize=1127 ok=1
+  insize=1601 outsize=192 ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=1541 outsize=448 kw= ok=1
+  api=4 type=0 insize=1659 outsize=2249 kw= ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=1541 outsize=227 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=1282 outsize=365 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=1282 outsize=227 kw= ok=1
+  api=4 type=1 insize=1659 outsize=892 kw= ok=1
 Cmd: preprocess
-  insize=2008 outsize=807 ok=1
+  insize=1159 outsize=381 ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=1503 outsize=326 kw= ok=1
+  api=4 type=0 insize=685 outsize=892 kw= ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=1503 outsize=970 kw= ok=1
+  api=4 type=1 insize=685 outsize=502 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=640 outsize=892 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=640 outsize=453 kw= ok=1
 Cmd: preprocess
-  insize=744 outsize=744 ok=1
+  insize=137 outsize=137 ok=1
+Cmd: preprocess
+  insize=1048 outsize=208 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1100 outsize=1168 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1100 outsize=1038 kw= ok=1
+Cmd: preprocess
+  insize=766 outsize=215 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=820 outsize=1055 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=820 outsize=811 kw= ok=1
+Cmd: preprocess
+  insize=787 outsize=189 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=865 outsize=1193 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=865 outsize=811 kw= ok=1
