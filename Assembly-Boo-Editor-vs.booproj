@@ -73,20 +73,20 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="RAINMetaformEditor">
- <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/Editor/RAINMetaformEditor.dll</HintPath>
+ <Reference Include="RAIN">
+ <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/RAIN.dll</HintPath>
  </Reference>
  <Reference Include="RAINMetaform">
  <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/RAINMetaform.dll</HintPath>
  </Reference>
- <Reference Include="RAIN">
- <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/RAIN.dll</HintPath>
- </Reference>
  <Reference Include="RAINEditor">
  <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/Editor/RAINEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="RAINMetaformEditor">
+ <HintPath>C:/Users/D_2/Documents/git/sweet-porridge/Assets/RAIN/Editor/RAINMetaformEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

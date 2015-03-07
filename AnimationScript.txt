@@ -13,6 +13,9 @@ Scene 1:
 * 12. Girl walks to forest
 * 15. When girl reaches forest, fade out 
 
+TODO:
+* Add NPC that walk around and jump up and down when you walk close to them
+
 Scene 2:
    1. Fade into new scene (forest)
 *  2. Another scene of girl walking through the forest
