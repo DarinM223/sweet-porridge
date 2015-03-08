@@ -36,7 +36,7 @@ namespace Village
         void OnDisable()
         {
             TitleCameraController.OnFinishedZooming -= afterTitleCameraFinished;
-            SchoolgirlController.OnFinishedRotating += afterGirlRotated;
+            SchoolgirlController.OnFinishedRotating -= afterGirlRotated;
             SchoolgirlController.OnFinishedTalking -= afterGirlTalked;
             MomController.OnFinishedTalking -= afterMomTalked;
         }

@@ -10,6 +10,10 @@ namespace House
 		public static event SchoolgirlAction OnFinishedWalking;
 		public static event SchoolgirlAction OnFinishedExiting;
 
+		private GameObject doorCube;
+		private bool rotating = false;
+		private bool finishedRotating = false;
+
 		private IEnumerator walk() 
 		{
 			animator.SetInteger("Walking", 1);
@@ -25,12 +29,20 @@ namespace House
 
 		private IEnumerator walkAway() 
 		{
+			animator.SetInteger("Walking", 1);
+			yield return new WaitForSeconds(3);
+			animator.SetInteger("Walking", 0);
 			yield return new WaitForSeconds(2);
+
+			if (OnFinishedExiting != null) 
+			{
+				OnFinishedExiting();
+			}
 		}
 
 		private void onFinishedDialogue() 
 		{
-			StartCoroutine(walkAway());
+			this.rotating = true;
 		}
 
 		void OnEnable()
@@ -47,13 +59,31 @@ namespace House
 		void Start () 
 		{
 			animator = GetComponent<Animator>();
+			doorCube = GameObject.Find("DoorCube");
 			StartCoroutine(walk());
 		}
 		
 		// Update is called once per frame
 		void Update () 
 		{
-		
+            if (this.rotating)
+            {
+                Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, doorCube.transform.position);
+
+                if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .01)
+                {
+                    if (this.finishedRotating == false)
+                    {
+                        this.finishedRotating = true;
+                        this.rotating = false;
+                        StartCoroutine(walkAway());
+                    }
+                }
+                else
+                {
+                    this.transform.rotation = rotTrans;
+                }
+            }
 		}
 	}
 }

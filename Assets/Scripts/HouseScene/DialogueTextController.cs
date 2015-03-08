@@ -61,14 +61,21 @@ namespace House
     		StartCoroutine(startDialogue());
     	}
 
+    	private void onSchoolgirlFinishedExiting() 
+    	{
+    		StartCoroutine(resumeDialogue());
+    	}
+
     	void OnEnable() 
         {
 			SchoolgirlController.OnFinishedWalking += onSchoolgirlFinishedWalking;
+			SchoolgirlController.OnFinishedExiting += onSchoolgirlFinishedExiting;
         }
 
         void OnDisable()
         {
         	SchoolgirlController.OnFinishedWalking -= onSchoolgirlFinishedWalking;
+        	SchoolgirlController.OnFinishedExiting -= onSchoolgirlFinishedExiting;
         }
 
         // Use this for initialization
