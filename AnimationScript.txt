@@ -31,6 +31,7 @@ Scene 3:
    1. Fade into new scene (inside home)
    2. Girl walks to mom
    3. Text: "I brought home a pot that cooks an infinite amount of porridge"
+   	  Sets down pot
    4. Text: "Now we will never get hungry again"
    5. Text: "k"
    6. Text: "You start the pot by saying start, pot, start, and you stop the pot with - "

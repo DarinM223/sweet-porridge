@@ -10,6 +10,19 @@ namespace House
 		public static event SchoolgirlAction OnFinishedWalking;
 		public static event SchoolgirlAction OnFinishedExiting;
 
+		private IEnumerator walk() 
+		{
+			animator.SetInteger("Walking", 1);
+			yield return new WaitForSeconds(3);
+			animator.SetInteger("Walking", 0);
+			yield return new WaitForSeconds(3);
+
+			if (OnFinishedWalking != null) 
+			{
+				OnFinishedWalking();
+			}
+		}
+
 		private IEnumerator walkAway() 
 		{
 			yield return new WaitForSeconds(2);
@@ -34,7 +47,7 @@ namespace House
 		void Start () 
 		{
 			animator = GetComponent<Animator>();
-
+			StartCoroutine(walk());
 		}
 		
 		// Update is called once per frame

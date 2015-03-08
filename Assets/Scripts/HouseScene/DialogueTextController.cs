@@ -7,13 +7,17 @@ namespace House
     {
     	public delegate void DialogueAction();
     	public static event DialogueAction OnFinishedDialogue;
-    	public static event DialogueAction OnStartPot;
 
-    	private GameObject exclamationSign;
+    	private GameObject exclamationTop;
+    	private GameObject exclamationBot;
     	private GameObject invisibleCube;
+    	private GameObject cookingPot;
+    	private GameObject cookingSteam;
+    	private GameObject porridgeCooking;
 
     	private IEnumerator startDialogue()
     	{
+    		MoveScripts.HideObject(this.cookingPot, false);
     		this.guiText.text = "Girl: I brought home a pot that cooks an infinite amount of porridge";
     		yield return new WaitForSeconds(3);
     		this.guiText.text = "Girl: Now we will never get hungry again";
@@ -21,10 +25,12 @@ namespace House
     		this.guiText.text = "Mom: ^_^";
     		yield return new WaitForSeconds(4);
     		this.guiText.text = "Girl: You start the pot by saying \"start, pot, start\" and you stop the pot with -";
-    		
     		yield return new WaitForSeconds(2);
-    		exclamationSign.active = true;
+    		MoveScripts.HideObject(exclamationBot, false);
+        	MoveScripts.HideObject(exclamationTop, false);
     		yield return new WaitForSeconds(3);
+    		MoveScripts.HideObject(exclamationBot, true);
+        	MoveScripts.HideObject(exclamationTop, true);
 
     		this.guiText.text = "Girl: OMG Snow White just tweeted that she is awake I have to see brb lol";
     		yield return new WaitForSeconds(3); 		
@@ -42,10 +48,8 @@ namespace House
     		this.guiText.text = "Mom: start, pot, start";
     		yield return new WaitForSeconds(3);
 
-    		if (OnStartPot != null) 
-    		{
-    			OnStartPot();
-    		}
+    		cookingSteam.active = true;
+    		porridgeCooking.active = true;
 
     		yield return new WaitForSeconds(4);
 
@@ -70,6 +74,22 @@ namespace House
         // Use this for initialization
         void Start()
         {
+        	this.guiText.text = "";
+        	this.exclamationTop = GameObject.Find("ExclamationTop");
+        	this.exclamationBot = GameObject.Find("ExclamationBot");
+        	this.invisibleCube = GameObject.Find("InvisibleCube");
+        	this.cookingPot = GameObject.Find("CookingPot");
+        	this.cookingSteam = GameObject.Find("CookingSteam");
+        	this.porridgeCooking = GameObject.Find("PorridgeCooking");
+
+        	this.exclamationBot.renderer.material.color = Color.yellow;
+        	this.exclamationTop.renderer.material.color = Color.yellow;
+
+        	MoveScripts.HideObject(exclamationBot, true);
+        	MoveScripts.HideObject(exclamationTop, true);
+        	MoveScripts.HideObject(cookingPot, true);
+        	cookingSteam.active = false;
+        	porridgeCooking.active = false;
         }
 	
         // Update is called once per frame
