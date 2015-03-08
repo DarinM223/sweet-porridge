@@ -51,8 +51,9 @@
      <Compile Include="Assets\Scripts\ForestScene\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\ForestScene\PotController.cs" />
      <Compile Include="Assets\Scripts\ForestScene\SchoolgirlController.cs" />
+     <Compile Include="Assets\Scripts\HouseScene\DialogueTextController.cs" />
+     <Compile Include="Assets\Scripts\HouseScene\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\MoveScripts.cs" />
-     <Compile Include="Assets\Scripts\SchoolgirlThirdPartyController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\InvisibleWallController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\MomCameraController.cs" />
