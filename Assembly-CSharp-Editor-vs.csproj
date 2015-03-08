@@ -88,7 +88,6 @@
       <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Compile Include="Assets\Scripts\HouseScene\SchoolgirlController.cs" />
-    <Compile Include="Assets\Scripts\HouseScene\DialogueTextController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">

@@ -70,7 +70,7 @@ namespace House
             {
                 Quaternion rotTrans = MoveScripts.RotateToFace(this.transform, doorCube.transform.position);
 
-                if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .01)
+                if ((rotTrans.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < .0001)
                 {
                     if (this.finishedRotating == false)
                     {

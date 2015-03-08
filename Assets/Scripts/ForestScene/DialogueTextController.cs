@@ -30,7 +30,6 @@ namespace Forest
                 OnWoot();
             }
             yield return new WaitForSeconds(4);
-            // MoveScripts.HideObject(theEnd, false);
         }
 
         private void afterGirlWalked()
@@ -43,6 +42,7 @@ namespace Forest
         {
             yield return new WaitForSeconds(2);
             // load third level
+            Application.LoadLevel(2);
         }
 
         private void onFinishLevel()
