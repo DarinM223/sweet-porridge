@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Imported Assets\Water FX Pack\Scripts\ScrollUV.js" />
+     <Compile Include="Assets\RiverWater\Scripts\RiverRefraction.js" />
+     <None Include="Assets\RiverWater\Shaders\RiverWater.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\AspectSphereShader.shader" />
      <None Include="Assets\RAIN\Editor\Shaders\VisualSensorLineShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
