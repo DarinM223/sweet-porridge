@@ -24,7 +24,7 @@ namespace House
     		yield return new WaitForSeconds(5);
     		this.guiText.text = "Mom: ^_^";
     		yield return new WaitForSeconds(4);
-    		this.guiText.text = "Girl: You start the pot by saying \"start, pot, start\" and you stop the pot with -";
+    		this.guiText.text = "Girl: You start the pot by saying \"start, pot, start\" and you stop the pot with \"stop, pot, stop\"";
     		yield return new WaitForSeconds(2);
     		MoveScripts.HideObject(exclamationBot, false);
         	MoveScripts.HideObject(exclamationTop, false);
@@ -32,7 +32,7 @@ namespace House
     		MoveScripts.HideObject(exclamationBot, true);
         	MoveScripts.HideObject(exclamationTop, true);
 
-    		this.guiText.text = "Girl: OMG Snow White just tweeted that she is awake I have to see brb lol";
+    		this.guiText.text = "Girl: brb lol";
     		yield return new WaitForSeconds(3); 		
 
     		if (OnFinishedDialogue != null) 
@@ -51,9 +51,15 @@ namespace House
     		cookingSteam.active = true;
     		porridgeCooking.active = true;
 
+			yield return new WaitForSeconds(4);
+
+			this.guiText.text = "Mom: Wait, how do you stop the pot again >_>";
+
     		yield return new WaitForSeconds(4);
 
     		invisibleCube.SendMessage("FadeOut");
+			yield return new WaitForSeconds(2);
+			Application.LoadLevel(3);
     	}
 
     	private void onSchoolgirlFinishedWalking() 
