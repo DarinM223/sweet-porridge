@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\HouseScene\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\HouseScene\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\MoveScripts.cs" />
+     <Compile Include="Assets\Scripts\VillageReturnScene\DialogueTextController.cs" />
      <Compile Include="Assets\Scripts\VillageReturnScene\DoorController.cs" />
      <Compile Include="Assets\Scripts\VillageReturnScene\SchoolgirlController.cs" />
      <Compile Include="Assets\Scripts\VillageScene\DialogueTextController.cs" />
